@@ -1,4 +1,4 @@
-﻿CREATE TABLE `activity_logs` (
+CREATE TABLE `activity_logs` (
   `activity_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `action` varchar(255) NOT NULL,
