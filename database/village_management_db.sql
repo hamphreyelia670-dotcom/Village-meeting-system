@@ -1,6 +1,4 @@
-﻿/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `activity_logs` (
+﻿CREATE TABLE `activity_logs` (
   `activity_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `action` varchar(255) NOT NULL,
@@ -10,9 +8,6 @@ CREATE TABLE `activity_logs` (
   KEY `created_at` (`created_at`),
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `agendas` (
   `AgendaId` int(11) NOT NULL AUTO_INCREMENT,
   `MeetingId` int(11) NOT NULL,
@@ -23,9 +18,6 @@ CREATE TABLE `agendas` (
   KEY `fk_agenda_meeting` (`MeetingId`),
   CONSTRAINT `fk_agenda_meeting` FOREIGN KEY (`MeetingId`) REFERENCES `meetings` (`Meeting_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `announcement` (
   `AnnouncementId` int(11) NOT NULL AUTO_INCREMENT,
   `Title` varchar(200) NOT NULL,
@@ -37,9 +29,6 @@ CREATE TABLE `announcement` (
   KEY `fk_announcement_user` (`Createdby`),
   CONSTRAINT `fk_announcement_user` FOREIGN KEY (`Createdby`) REFERENCES `users` (`userId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `attendance` (
   `AttendanceID` int(11) NOT NULL AUTO_INCREMENT,
   `MeetingId` int(11) NOT NULL,
@@ -52,9 +41,6 @@ CREATE TABLE `attendance` (
   CONSTRAINT `fk_attendance_meeting` FOREIGN KEY (`MeetingId`) REFERENCES `meetings` (`Meeting_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_attendance_user` FOREIGN KEY (`UserId`) REFERENCES `users` (`userId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bulk_sms` (
   `Sms_id` int(11) NOT NULL AUTO_INCREMENT,
   `Title` varchar(200) DEFAULT NULL,
@@ -71,9 +57,6 @@ CREATE TABLE `bulk_sms` (
   CONSTRAINT `fk_sms_meeting` FOREIGN KEY (`MeetingId`) REFERENCES `meetings` (`Meeting_id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `fk_sms_user` FOREIGN KEY (`Createdby`) REFERENCES `users` (`userId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `feedback` (
   `FeedbackId` int(11) NOT NULL AUTO_INCREMENT,
   `UserId` int(11) NOT NULL,
@@ -85,9 +68,6 @@ CREATE TABLE `feedback` (
   KEY `fk_feedback_user` (`UserId`),
   CONSTRAINT `fk_feedback_user` FOREIGN KEY (`UserId`) REFERENCES `users` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `meetings` (
   `Meeting_id` int(11) NOT NULL AUTO_INCREMENT,
   `Title` varchar(150) NOT NULL,
@@ -102,9 +82,6 @@ CREATE TABLE `meetings` (
   KEY `fk_meeting_user` (`CreatedBy`),
   CONSTRAINT `fk_meeting_user` FOREIGN KEY (`CreatedBy`) REFERENCES `users` (`userId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `minutes` (
   `MinutesId` int(11) NOT NULL AUTO_INCREMENT,
   `MeetingId` int(11) NOT NULL,
@@ -119,9 +96,6 @@ CREATE TABLE `minutes` (
   CONSTRAINT `fk_minutes_meeting` FOREIGN KEY (`MeetingId`) REFERENCES `meetings` (`Meeting_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_minutes_user` FOREIGN KEY (`Createdby`) REFERENCES `users` (`userId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `resolutions` (
   `ResolutionId` int(11) NOT NULL AUTO_INCREMENT,
   `MeetingId` int(11) NOT NULL,
@@ -135,9 +109,6 @@ CREATE TABLE `resolutions` (
   KEY `fk_resolution_meeting` (`MeetingId`),
   CONSTRAINT `fk_resolution_meeting` FOREIGN KEY (`MeetingId`) REFERENCES `meetings` (`Meeting_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sms_recipients` (
   `RecipientId` int(11) NOT NULL AUTO_INCREMENT,
   `Sms_id` int(11) NOT NULL,
@@ -151,18 +122,12 @@ CREATE TABLE `sms_recipients` (
   CONSTRAINT `fk_recipient_sms` FOREIGN KEY (`Sms_id`) REFERENCES `bulk_sms` (`Sms_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_recipient_user` FOREIGN KEY (`UserId`) REFERENCES `users` (`userId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `system_settings` (
   `setting_key` varchar(100) NOT NULL,
   `setting_value` text NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`setting_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `userId` int(11) NOT NULL AUTO_INCREMENT,
   `Firstname` varchar(50) NOT NULL,
@@ -179,4 +144,3 @@ CREATE TABLE `users` (
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
