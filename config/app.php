@@ -3,7 +3,7 @@
 define('APP_NAME', 'Village Meeting System');
 define('APP_BASE_PATH', __DIR__ . '/..');
 
-define('APP_URL', '/village meeting projects');
+define('APP_URL', getenv('APP_URL') ?: '/village meeting projects');
 
 function app_url(string $path = ''): string
 {

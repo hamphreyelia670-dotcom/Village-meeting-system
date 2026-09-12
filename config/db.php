@@ -1,9 +1,9 @@
 <?php
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "village_management_db";
+$host = getenv("DB_HOST") ?: "localhost";
+$username = getenv("DB_USERNAME") ?: "root";
+$password = getenv("DB_PASSWORD") ?: "";
+$database = getenv("DB_DATABASE") ?: "village_management_db";
 
 $conn = new mysqli(
     $host,
