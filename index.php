@@ -19,12 +19,17 @@ if ($query) {
 
 $dashboard = "auth/login.php";
 if (isset($_SESSION["role"])) {
-	$dashboard = match ($_SESSION["role"]) {
-		"admin" => "admin/dashboard.php",
-		"chairman" => "chairman/dashboard.php",
-		"citizen" => "citizen/dashboard.php",
-		default => "auth/login.php"
-	};
+	switch ($_SESSION["role"]) {
+		case "admin":
+			$dashboard = "admin/dashboard.php";
+			break;
+		case "chairman":
+			$dashboard = "chairman/dashboard.php";
+			break;
+		case "citizen":
+			$dashboard = "citizen/dashboard.php";
+			break;
+	}
 }
 ?>
 <!DOCTYPE html>
