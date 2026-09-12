@@ -35,15 +35,6 @@ CREATE TABLE `activity_logs` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `activity_logs`
---
-
-LOCK TABLES `activity_logs` WRITE;
-/*!40000 ALTER TABLE `activity_logs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `activity_logs` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `agendas`
 --
 
@@ -61,15 +52,6 @@ CREATE TABLE `agendas` (
   CONSTRAINT `fk_agenda_meeting` FOREIGN KEY (`MeetingId`) REFERENCES `meetings` (`Meeting_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `agendas`
---
-
-LOCK TABLES `agendas` WRITE;
-/*!40000 ALTER TABLE `agendas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `agendas` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `announcement`
@@ -92,15 +74,6 @@ CREATE TABLE `announcement` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `announcement`
---
-
-LOCK TABLES `announcement` WRITE;
-/*!40000 ALTER TABLE `announcement` DISABLE KEYS */;
-/*!40000 ALTER TABLE `announcement` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `attendance`
 --
 
@@ -120,15 +93,6 @@ CREATE TABLE `attendance` (
   CONSTRAINT `fk_attendance_user` FOREIGN KEY (`UserId`) REFERENCES `users` (`userId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `attendance`
---
-
-LOCK TABLES `attendance` WRITE;
-/*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
-/*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `bulk_sms`
@@ -156,15 +120,6 @@ CREATE TABLE `bulk_sms` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `bulk_sms`
---
-
-LOCK TABLES `bulk_sms` WRITE;
-/*!40000 ALTER TABLE `bulk_sms` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bulk_sms` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `feedback`
 --
 
@@ -183,16 +138,6 @@ CREATE TABLE `feedback` (
   CONSTRAINT `fk_feedback_user` FOREIGN KEY (`UserId`) REFERENCES `users` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `feedback`
---
-
-LOCK TABLES `feedback` WRITE;
-/*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
-INSERT INTO `feedback` VALUES (1,1,'maji taka','mabomba ya maji taka yameharibika','pending','2026-09-11 10:41:08'),(2,1,'barabara','barabara ya kwenda kijiji cha makulu imeharibika','pending','2026-09-11 16:15:43'),(3,1,'barabara','barabara ya kwenda kijiji cha makulu imeharibika','pending','2026-09-11 16:15:50');
-/*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `meetings`
@@ -218,16 +163,6 @@ CREATE TABLE `meetings` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `meetings`
---
-
-LOCK TABLES `meetings` WRITE;
-/*!40000 ALTER TABLE `meetings` DISABLE KEYS */;
-INSERT INTO `meetings` VALUES (1,'mkutano wa maendeleo ya kijiji','kutakuwa na mkutano wa maendeleo ya kijiji kwa wananchi wote','2026-10-09','20:07:00','ukumbi wa ofisi ya kijiji','upcoming',5,'2026-09-09 16:08:29'),(2,'Mkutano wa vijana','mkutano kwa ajili ya vijana wote','2026-12-14','09:30:00','ukumbi wa shule ya msingi mtakuja','upcoming',5,'2026-09-09 16:24:15');
-/*!40000 ALTER TABLE `meetings` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `minutes`
 --
 
@@ -249,15 +184,6 @@ CREATE TABLE `minutes` (
   CONSTRAINT `fk_minutes_user` FOREIGN KEY (`Createdby`) REFERENCES `users` (`userId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `minutes`
---
-
-LOCK TABLES `minutes` WRITE;
-/*!40000 ALTER TABLE `minutes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `minutes` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `resolutions`
@@ -282,15 +208,6 @@ CREATE TABLE `resolutions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `resolutions`
---
-
-LOCK TABLES `resolutions` WRITE;
-/*!40000 ALTER TABLE `resolutions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `resolutions` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `sms_recipients`
 --
 
@@ -313,15 +230,6 @@ CREATE TABLE `sms_recipients` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `sms_recipients`
---
-
-LOCK TABLES `sms_recipients` WRITE;
-/*!40000 ALTER TABLE `sms_recipients` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sms_recipients` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `system_settings`
 --
 
@@ -335,15 +243,6 @@ CREATE TABLE `system_settings` (
   PRIMARY KEY (`setting_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `system_settings`
---
-
-LOCK TABLES `system_settings` WRITE;
-/*!40000 ALTER TABLE `system_settings` DISABLE KEYS */;
-/*!40000 ALTER TABLE `system_settings` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `users`
@@ -371,16 +270,6 @@ CREATE TABLE `users` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'festo','isack','0712345678','festo@gmail.com','citizen','2026-09-08 07:51:44','active','feisaal','$2y$10$dlQvF/ekrRpRgJpjJXsBkemvkeVF3fQ0RJM2UL9QeOaASXza98Opa'),(4,'amina','ally','0712345670','aminajuma@gmail.com','citizen','2026-09-08 15:04:00','inactive','chairman','1234567'),(5,'Hamphrey','Elia','0768820266','hamphreyelia670@gmail.com','admin','2026-09-08 18:23:33','active','bg','$2y$10$GAyCoBn7yN15xknrJ03gHeXk5QiL9j3qWhdsGqmvswnA9LO.bQYkm'),(6,'sikudhani','mvula','0745362829','sikudhani@gmail.com','citizen','2026-09-08 18:27:47','inactive','sikudhani','$2y$10$aCTYPCn1S6vKa5pMg7Es/erxOm7sdU0B2xy2LCmbXiBB0Dr6OiUkG'),(7,'festo','isaka','0722222222','isaka@gmail.com','chairman','2026-09-09 06:16:13','active','isaka','$2y$10$pvR5P4RhMXXWToXkO492luKkDEvPBlFA6PuUVny6MDtGVSk0XcCJG'),(8,'Annapisa','sylivester','0610903018','annapisamokiri@gmail.com','citizen','2026-09-09 07:38:36','active','annah','$2y$10$7dYgswxn1tR/9faJigoqkeZAf7CEKR5Ju0hTTv6.MG/CMlANC0x6a'),(9,'AMOSI','HUSSEIN','0662021337','amosi@gmail.com','chairman','2026-09-10 11:36:27','active','amosi','$2y$10$bk2Z6a5rVav3ApRi1FnrPOtJrrsub4wWQCiyaLiGOChEDWtOUdcgm'),(10,'festo','shotoo','0760299194','feisho@gmail.com','admin','2026-09-11 06:53:45','active','feishoo','$2y$10$IO7bS8hX5b0UQBptbueAMOXOqiOEJNnTxKAUPHYcTOyet0p7bByAK');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Dumping routines for database 'village_management_db'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -393,4 +282,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-12 15:21:05
+-- Dump completed on 2026-09-12 15:22:24
