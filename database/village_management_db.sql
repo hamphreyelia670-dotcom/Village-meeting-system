@@ -1,26 +1,4 @@
-﻿-- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
---
--- Host: localhost    Database: village_management_db
--- ------------------------------------------------------
--- Server version	10.4.32-MariaDB
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `activity_logs`
---
-
-DROP TABLE IF EXISTS `activity_logs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+﻿/*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `activity_logs` (
   `activity_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -33,12 +11,6 @@ CREATE TABLE `activity_logs` (
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `agendas`
---
-
-DROP TABLE IF EXISTS `agendas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `agendas` (
@@ -52,12 +24,6 @@ CREATE TABLE `agendas` (
   CONSTRAINT `fk_agenda_meeting` FOREIGN KEY (`MeetingId`) REFERENCES `meetings` (`Meeting_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `announcement`
---
-
-DROP TABLE IF EXISTS `announcement`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `announcement` (
@@ -72,12 +38,6 @@ CREATE TABLE `announcement` (
   CONSTRAINT `fk_announcement_user` FOREIGN KEY (`Createdby`) REFERENCES `users` (`userId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `attendance`
---
-
-DROP TABLE IF EXISTS `attendance`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `attendance` (
@@ -93,12 +53,6 @@ CREATE TABLE `attendance` (
   CONSTRAINT `fk_attendance_user` FOREIGN KEY (`UserId`) REFERENCES `users` (`userId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `bulk_sms`
---
-
-DROP TABLE IF EXISTS `bulk_sms`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bulk_sms` (
@@ -118,12 +72,6 @@ CREATE TABLE `bulk_sms` (
   CONSTRAINT `fk_sms_user` FOREIGN KEY (`Createdby`) REFERENCES `users` (`userId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `feedback`
---
-
-DROP TABLE IF EXISTS `feedback`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `feedback` (
@@ -138,12 +86,6 @@ CREATE TABLE `feedback` (
   CONSTRAINT `fk_feedback_user` FOREIGN KEY (`UserId`) REFERENCES `users` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `meetings`
---
-
-DROP TABLE IF EXISTS `meetings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `meetings` (
@@ -161,12 +103,6 @@ CREATE TABLE `meetings` (
   CONSTRAINT `fk_meeting_user` FOREIGN KEY (`CreatedBy`) REFERENCES `users` (`userId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `minutes`
---
-
-DROP TABLE IF EXISTS `minutes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `minutes` (
@@ -184,12 +120,6 @@ CREATE TABLE `minutes` (
   CONSTRAINT `fk_minutes_user` FOREIGN KEY (`Createdby`) REFERENCES `users` (`userId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `resolutions`
---
-
-DROP TABLE IF EXISTS `resolutions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `resolutions` (
@@ -206,12 +136,6 @@ CREATE TABLE `resolutions` (
   CONSTRAINT `fk_resolution_meeting` FOREIGN KEY (`MeetingId`) REFERENCES `meetings` (`Meeting_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `sms_recipients`
---
-
-DROP TABLE IF EXISTS `sms_recipients`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sms_recipients` (
@@ -228,12 +152,6 @@ CREATE TABLE `sms_recipients` (
   CONSTRAINT `fk_recipient_user` FOREIGN KEY (`UserId`) REFERENCES `users` (`userId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `system_settings`
---
-
-DROP TABLE IF EXISTS `system_settings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `system_settings` (
@@ -243,12 +161,6 @@ CREATE TABLE `system_settings` (
   PRIMARY KEY (`setting_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
@@ -268,18 +180,3 @@ CREATE TABLE `users` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping routines for database 'village_management_db'
---
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2026-09-12 15:22:24
